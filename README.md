@@ -1,6 +1,6 @@
 # Progressive Web App (PWA)
 
-This project demonstrates how to create a Progressive Web App (PWA) using HTML, JavaScript, and Service Workers. The PWA displays a set of artist cards and incorporates push notifications. 
+This project demonstrates how to create a Progressive Web App (PWA) using HTML, JavaScript, and Service Workers. The PWA displays a set of artist cards and incorporates notifications. 
 
 ## File Structure
 ```
@@ -22,12 +22,12 @@ pwa/
 │
 ├── index.html
 ├── manifest.json
-└── service-worker.js
+└── lighthouse-results
 ```
 
 ## Features
 - **Service Worker**: Registers a service worker to handle caching, enabling offline capabilities.
-- **Push Notifications**: Requests user permission for notifications and simulates a notification.
+- **Notifications**: Requests user permission for notifications and simulates a notification.
 - **PWA Manifest**: Includes a manifest file to define the app's name, icons, and appearance when installed.
 - **Caching**: Uses a service worker to cache assets and files, improving loading times and offline functionality.
 
@@ -56,7 +56,7 @@ Handles the caching of files for offline access:
 - A function to dynamically create and display artist cards on the page.
 
 ### 6. `notifications.js`
-- Manages the push notification functionality.
+- Manages the notification functionality.
 - Checks if the Notification API is available, requests permission, and triggers a simulated notification.
 
 ## How to Run the PWA
@@ -73,9 +73,9 @@ The service worker is registered in `service-worker.js` and is responsible for:
 - **Caching**: Caching essential files to make the PWA available offline.
 - **Fetch Handling**: Intercepting network requests to serve cached content when offline.
 
-### Push Notifications
+### Notifications
 In `notifications.js`:
-- Requests the user's permission for push notifications.
+- Requests the user's permission for notifications.
 - If granted, simulates a notification after a 3-second delay.
 
 ### Manifest File
@@ -87,7 +87,7 @@ The `manifest.json` provides essential information about the PWA, such as:
 ## Testing
 To test the PWA:
 1. **Permissions**: Accept the notification permissions when prompted.
-2. **Simulated Notification**: A notification will appear 3 seconds after permission is granted.
+2. **Simulated Notification**: A notification will appear 2 seconds after permission is granted.
 3. **Offline Mode**: Open Developer Tools, go to the "Network" tab, and enable "Offline" mode to test the app's offline capabilities.
 
 ## Medium Link

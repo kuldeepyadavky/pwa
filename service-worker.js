@@ -1,5 +1,5 @@
 // Cache name for this version of the service worker
-const staticPage = 'for-the-cult';
+const staticPage = 'for-the-cult-v1'; // Versioning for cache to manage updates
 
 // List of assets to cache, including images from both assets/icons and assets/images directories
 const assets = [
@@ -36,42 +36,44 @@ const assets = [
 ];
 
 // Install event: caches all assets listed in the assets array
-self.addEventListener('install', installEvent => {
+self.addEventListener('install', (installEvent) => {
+  // Wait until the caching process completes before considering the service worker installed
   installEvent.waitUntil(
-    caches.open(staticPage).then(cache => {
-      return cache.addAll(assets); // Cache all specified assets
+    caches.open(staticPage).then((cache) => {
+      // Cache all specified assets
+      return cache.addAll(assets);
+    }).catch((error) => {
+      console.error('Failed to cache assets during install:', error);
     })
   );
 });
 
 // Fetch event: serves cached assets or fetches them from the network if not in the cache
-self.addEventListener('fetch', fetchEvent => {
+self.addEventListener('fetch', (fetchEvent) => {
   fetchEvent.respondWith(
-    caches.match(fetchEvent.request).then(cachedResponse => {
-      console.log('is cache present', cachedResponse);
-      // Check if the request is in the cache
+    caches.match(fetchEvent.request).then((cachedResponse) => {
+      console.log('Checking cache for:', fetchEvent.request.url);
       // Return cached response if found, otherwise fetch from the network
-      return cachedResponse || fetch(fetchEvent.request);
+      return cachedResponse || fetch(fetchEvent.request).catch((error) => {
+        console.error('Failed to fetch from network:', error);
+      });
     })
   );
 });
 
-// Push event
-self.addEventListener('push', event => {
-  console.log('Push event received:', event);
-  const data = event.data ? event.data.json() : {};
-  const title = data.title || 'Notification';
-  const options = {
-    body: data.body || 'You have a new notification!',
-    icon: '/assets/icons/icon-192x192.png',
-    badge: '/assets/icons/icon-72x72.png'
-  };
 
-  event.waitUntil(
-    self.registration.showNotification(title, options).then(() => {
-      console.log('Notification displayed:', title);
-    }).catch(error => {
-      console.error('Failed to display notification:', error);
-    })
-  );
-});
+// commenting code for push notifications
+// self.addEventListener('push', (event) => {
+//   console.log('Push event received:', event);
+//   const data = event.data ? event.data.json() : {};
+//   const title = data.title || 'Notification';
+//   const options = {
+//     body: data.body || 'You have a new notification!',
+//     icon: '/assets/icons/icon-192x192.png',
+//     badge: '/assets/icons/icon-72x72.png',
+//   };
+
+//   event.waitUntil(
+//     self.registration.showNotification(title, options)
+//   );
+// });
