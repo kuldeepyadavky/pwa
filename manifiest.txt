@@ -1,0 +1,93 @@
+{
+  "name": "For The Culture",
+  "short_name": "TheCult",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#1DB954",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/icons/icon-36x36.png",
+      "sizes": "36x36",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ]
+}
+
+Explanation:
+
+- **name**: The name of the Progressive Web App (PWA) as it appears on the user's home screen. Here, it is "For The Culture."
+
+- **short_name**: A shorter version of the app name that may be used where space is limited. Here, it is "TheCult."
+
+- **start_url**: The URL that the PWA will open when launched. It is set to "index.html."
+
+- **display**: Specifies the preferred display mode for the PWA. "standalone" means it will open in a separate window without the browser UI.
+
+- **background_color**: The background color for the PWA's splash screen when it is first launched. Here, it is set to "#121212" (a dark color).
+
+- **theme_color**: The color of the PWA's theme, which affects the color of the browser toolbar. Here, it is set to "#1DB954" (Spotify green).
+
+- **orientation**: Defines the default orientation of the PWA. "portrait-primary" means the app is locked to portrait mode.
+
+- **icons**: An array of icon objects representing the different sizes of the app icon for various use cases (e.g., home screen, splash screen). Each object specifies:
+  - **src**: The path to the icon image file.
+  - **sizes**: The dimensions of the icon in pixels.
+  - **type**: The MIME type of the image.
+  - **purpose**: Indicates the usage of the icon. "maskable" means the icon can be used as a maskable icon, while "any" means it can be used in any context.

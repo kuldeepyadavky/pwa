@@ -1,0 +1,178 @@
+/* Import fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;500&display=swap');
+
+/* Basic body styling */
+body {
+  background: #121212; /* Dark background color for a sleek, modern look */
+  font-family: 'Poppins', sans-serif; /* Font-family for general text */
+  font-size: 1rem; /* Base font size */
+  color: #E0E0E0; /* Off-white text color for readability */
+}
+
+/* Main container styling */
+main {
+  max-width: 1200px; /* Maximum width for the main content area */
+  margin: auto; /* Center-align the main content */
+  padding: 1rem; /* Padding around the content */
+  text-align: center; /* Center-align text within the main area */
+}
+
+/* Navigation bar styling */
+nav {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space out navigation items */
+  align-items: center; /* Center-align items vertically */
+  padding: 1rem; /* Padding around navigation */
+  background: #1F1F1F; /* Dark background for the navigation bar */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Shadow effect for depth */
+}
+
+/* Title in navigation */
+.nav__title {
+  color: #1DB954; /* Spotify green for emphasis */
+  font-family: 'Montserrat', sans-serif; /* Font-family for the title */
+  font-size: 1.5rem; /* Larger font size for the title */
+}
+
+/* Navigation list styling */
+.nav__list {
+  list-style: none; /* Remove default list styling */
+  display: flex; /* Display items in a row */
+  gap: 1rem; /* Space between navigation items */
+}
+
+.nav__item {
+  margin: 0; /* Remove margin for nav items */
+}
+
+.nav__link {
+  text-decoration: none; /* Remove underline from links */
+  color: #E0E0E0; /* Off-white color for text */
+  font-family: 'Poppins', sans-serif; /* Font-family for links */
+  font-size: 1rem; /* Font size for links */
+  padding: 0.5rem 1rem; /* Padding inside the links */
+  border-radius: 10px; /* Rounded corners for links */
+  display: block; /* Ensure links take up the full width of their container */
+  transition: background 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for navigation links */
+.nav__link:hover {
+  background: #1DB954; /* Spotify green background on hover */
+  color: #121212; /* Dark text color on hover */
+}
+
+/* Container for card elements */
+.container {
+  display: grid; /* Use grid layout for cards */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust columns based on screen size */
+  gap: 1rem; /* Gap between grid items */
+  justify-content: center; /* Center-align the grid items */
+  align-items: start; /* Align items at the start */
+  padding: 1rem 0; /* Padding above and below the container */
+}
+
+/* Card styling */
+.card {
+  display: flex; /* Flexbox layout for card content */
+  align-items: center; /* Center-align content vertically */
+  flex-direction: column; /* Stack content vertically */
+  background: #1F1F1F; /* Darker grey background for the card */
+  width: 100%; /* Full width of the container */
+  border-radius: 15px; /* Rounded corners for the card */
+  overflow: hidden; /* Hide overflow content */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Shadow effect for card depth */
+}
+
+/* Hover effect for cards */
+.card:hover {
+  transform: scale(1.05); /* Slightly enlarge card on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* More prominent shadow on hover */
+}
+
+/* Avatar image styling within card */
+.card__avatar {
+  width: 100%; /* Full width of the card */
+  height: 12rem; /* Fixed height for avatar */
+  object-fit: cover; /* Ensure image covers the area without distortion */
+}
+
+/* Card title styling */
+.card__title {
+  color: #E0E0E0; /* Off-white color for card title */
+  font-family: 'Montserrat', sans-serif; /* Font-family for card title */
+  font-weight: 700; /* Bold text */
+  font-size: 1.2rem; /* Font size for card title */
+  margin: 0.5rem 0; /* Margin around the title */
+}
+
+/* Card link/button styling */
+.card__link {
+    text-decoration: none; /* Remove underline from link */
+    background: #1DB954; /* Spotify green background */
+    color: #ffffff; /* White text color for better contrast */
+    padding: 0.4rem 1rem; /* Padding inside the button */
+    border-radius: 20px; /* Rounded corners for button */
+    transition: background 0.3s ease; /* Smooth transition for hover effect */
+    font-family: 'Poppins', sans-serif; /* Consistent font-family */
+    font-size: 1rem; /* Font size for button text */
+    display: flex; /* Flexbox for centering text */
+    align-items: center; /* Center-align text vertically */
+    justify-content: center; /* Center-align text horizontally */
+    margin: 15px 0; /* Margin outside the button */
+  }
+
+/* Hover effect for card link/button */
+.card__link:hover {
+  background: #14833b; /* Darker green background on hover */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .nav__title {
+    font-size: 1.2rem; /* Adjust title font size for smaller screens */
+  }
+  
+  .nav__link {
+    font-size: 0.9rem; /* Adjust link font size for smaller screens */
+    padding: 0.4rem 0.8rem; /* Adjust padding for smaller screens */
+  }
+  
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Two cards per row on smaller screens */
+  }
+  
+  .card {
+    max-width: 100%; /* Ensure card takes up full width */
+    height: auto; /* Allow card height to adjust */
+  }
+  
+  .card__title {
+    font-size: 1rem; /* Adjust font size for card title */
+  }
+}
+
+@media (max-width: 480px) {
+  .nav__title {
+    font-size: 1rem; /* Further adjust title font size for very small screens */
+  }
+  
+  .nav__link {
+    font-size: 0.8rem; /* Further adjust link font size for very small screens */
+    padding: 0.3rem 0.6rem; /* Further adjust padding for very small screens */
+  }
+  
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Single card per row on very small screens */
+  }
+  
+  .card {
+    max-width: 100%; /* Ensure card takes up full width */
+    height: auto; /* Allow card height to adjust */
+  }
+  
+  .card__title {
+    font-size: 0.9rem; /* Further adjust font size for card title */
+  }
+}
