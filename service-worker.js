@@ -1,7 +1,7 @@
-// Define a static cache name for the service worker
+// Cache name for this version of the service worker
 const staticPage = 'for-the-cult';
 
-// List of assets to be cached, including images from both assets/icons and assets/images directories
+// List of assets to cache, including images from both assets/icons and assets/images directories
 const assets = [
   '/',
   '/index.html',
@@ -26,26 +26,52 @@ const assets = [
   '/assets/images/karma.jpeg',
   '/assets/images/seedhe-maut.jpeg',
   '/assets/images/yashraj.jpeg',
+  '/assets/splash/splash-640x1136.png',
+  '/assets/splash/splash-750x1294.png',
+  '/assets/splash/splash-1242x2148.png',
+  '/assets/splash/splash-1125x2436.png',
+  '/assets/splash/splash-1536x2048.png',
+  '/assets/splash/splash-1668x2224.png',
+  '/assets/splash/splash-2048x2732.png',
 ];
 
-// Install event: caches specified assets during the service worker's installation
+// Install event: caches all assets listed in the assets array
 self.addEventListener('install', installEvent => {
   installEvent.waitUntil(
     caches.open(staticPage).then(cache => {
-      // Open the cache and add all assets to it
-      return cache.addAll(assets);
+      return cache.addAll(assets); // Cache all specified assets
     })
   );
 });
 
-// Fetch event: serves cached assets or fetches them from the network if not cached
+// Fetch event: serves cached assets or fetches them from the network if not in the cache
 self.addEventListener('fetch', fetchEvent => {
   fetchEvent.respondWith(
     caches.match(fetchEvent.request).then(cachedResponse => {
-      console.log('is cache presenet', cachedResponse);
+      console.log('is cache present', cachedResponse);
       // Check if the request is in the cache
-      // Return the cached response if found, otherwise fetch from the network
+      // Return cached response if found, otherwise fetch from the network
       return cachedResponse || fetch(fetchEvent.request);
+    })
+  );
+});
+
+// Push event
+self.addEventListener('push', event => {
+  console.log('Push event received:', event);
+  const data = event.data ? event.data.json() : {};
+  const title = data.title || 'Notification';
+  const options = {
+    body: data.body || 'You have a new notification!',
+    icon: '/assets/icons/icon-192x192.png',
+    badge: '/assets/icons/icon-72x72.png'
+  };
+
+  event.waitUntil(
+    self.registration.showNotification(title, options).then(() => {
+      console.log('Notification displayed:', title);
+    }).catch(error => {
+      console.error('Failed to display notification:', error);
     })
   );
 });
