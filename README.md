@@ -18,11 +18,14 @@ pwa/
 │   ├── app.js
 │   ├── artists.js
 │   ├── notifications.js
-│   └── service-worker.js
+│   └── register-service-worker.js
 │
 ├── index.html
 ├── manifest.json
+├── service-worker.json
 └── lighthouse-results
+
+
 ```
 
 ## Features
