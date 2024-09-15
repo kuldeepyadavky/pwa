@@ -22,7 +22,7 @@ pwa/
 │
 ├── index.html
 ├── manifest.json
-├── service-worker.json
+├── service-worker.js
 └── lighthouse-results
 
 
