@@ -1,5 +1,5 @@
 // Cache name for this version of the service worker
-const staticPage = 'for-the-cult-v1'; // Versioning for cache to manage updates
+const CACHE_NAME = 'for-the-cult-v1'; // Versioning for cache to manage updates
 
 // List of assets to cache, including images from both assets/icons and assets/images directories
 const assets = [
@@ -39,11 +39,26 @@ const assets = [
 self.addEventListener('install', (installEvent) => {
   // Wait until the caching process completes before considering the service worker installed
   installEvent.waitUntil(
-    caches.open(staticPage).then((cache) => {
+    caches.open(CACHE_NAME).then((cache) => {
       // Cache all specified assets
       return cache.addAll(assets);
     }).catch((error) => {
       console.error('Failed to cache assets during install:', error);
+    })
+  );
+});
+
+// Activate event: Clears old caches
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cache) => {
+          if (cache !== CACHE_NAME) {
+            return caches.delete(cache);
+          }
+        })
+      );
     })
   );
 });
