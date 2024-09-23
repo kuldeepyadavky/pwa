@@ -1,5 +1,3 @@
-// js/notifications.js
-
 /**
  * Requests notification permission from the user and returns a boolean indicating whether permission was granted.
  * @returns {Promise<boolean>} - Promise that resolves to true if permission is granted, false otherwise.
