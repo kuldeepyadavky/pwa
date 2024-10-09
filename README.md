@@ -94,4 +94,4 @@ To test the PWA:
 3. **Offline Mode**: Open Developer Tools, go to the "Network" tab, and enable "Offline" mode to test the app's offline capabilities.
 
 ## Medium Link
-For a detailed explanation and additional insights, you can read the full blog post on Medium: [placeholder]
+For a detailed explanation and additional insights, you can read the full blog post on Medium: https://medium.com/@kuldeepyadavky/progressive-web-apps-what-makes-them-special-cb5a134bffb4
